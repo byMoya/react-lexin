@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors dong (you@example.org)
+ * @date    2017-07-05 18:16:23
+ * @version $Id$
+ */
+
+.swiper{
+	position: relative;
+	background-color: @Gray;
+}
+
+.swiper-item{
+	text-align: center;
+	height: 100%;
+	overflow: hidden;
+	.swiper-item-img{
+		height: 100%;
+		background-size:cover;
+	}
+}
+
+.swiper-loop{
+	position: absolute;
+
+	&.swiper-loop-bottom{
+		width: 100%;
+		bottom: .05rem;
+		left: 0;
+		text-align: center;
+	}
+
+	.swiper-loop-item{
+		display: inline-block;
+		width: .08rem;
+		height: .08rem;
+		border-radius: .08rem;
+		margin: 0 .05rem;
+		background-color: @Gray;
+		&.swiper-loop-item-selected{
+			background-color: @MainBlue;
+		}
+	}
+}
