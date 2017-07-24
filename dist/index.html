@@ -9,6 +9,21 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="full-screen" content="yes">
   <meta name="x5-fullscreen" content="true">
+  <script type="text/javascript">
+    !(function(doc, win) {
+      var docEle = doc.documentElement, //获取html元素
+        event = "onorientationchange" in window ? "orientationchange" : "resize", //判断是屏幕旋转还是resize;
+        fn = function() {
+          var width = docEle.clientWidth;
+          var w = 100*(width / 375)>120?120:100*(width / 375);
+          width && (docEle.style.fontSize = w + "px"); //设置html的fontSize，随着event的改变而改变。
+        };
+
+      win.addEventListener(event, fn, false);
+      doc.addEventListener("DOMContentLoaded", fn, false);
+
+    }(document, window));
+  </script>
   <title>乐心Moya</title>
 </head>
 <body>

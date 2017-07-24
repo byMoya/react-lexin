@@ -24,10 +24,10 @@ Mock.mock(/\/index\/statement/,{
 Mock.mock(/\/group\/banner/,{
 	code:200,
 	data:[
-	    {src:"http://localhost:8000/images/b1.jpg"},
-	    {src:"http://localhost:8000/images/b2.jpg"},
-	    {src:"http://localhost:8000/images/b3.jpg"},
-	    {src:"http://localhost:8000/images/b4.jpg"}
+	    {src:"http://127.0.0.1/images/b1.jpg"},
+	    {src:"http://127.0.0.1/images/b2.jpg"},
+	    {src:"http://127.0.0.1/images/b3.jpg"},
+	    {src:"http://127.0.0.1/images/b4.jpg"}
 	]
 });
 
@@ -38,7 +38,7 @@ Mock.mock(/\/group\/list/,{
 		for(var i=0;i<10;i++){
 			list.push({
 				id:i,
-		    	img:"http://localhost:8000/images/p1.jpg",
+		    	img:"http://127.0.0.1/images/p1.jpg",
 		    	name:"测试跑步群"+i,
 		    	tips:"夜跑,跑步,活动",
 		    	province:"广东",
@@ -55,9 +55,9 @@ Mock.mock(/\/group\/list/,{
 Mock.mock(/\/discovery\/banner/,{
 	code:200,
 	data:[
-	    {src:"http://localhost:8000/images/b5.jpg"},
-	    {src:"http://localhost:8000/images/b6.jpg"},
-	    {src:"http://localhost:8000/images/b7.jpg"}
+	    {src:"http://127.0.0.1/images/b5.jpg"},
+	    {src:"http://127.0.0.1/images/b6.jpg"},
+	    {src:"http://127.0.0.1/images/b7.jpg"}
 	]
 });
 

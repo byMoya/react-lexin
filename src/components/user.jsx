@@ -61,7 +61,7 @@ class Main extends Component {
                 <div className='card'>
                     <dl className='card-item'>
                         <dt className='card-item-img'>
-                            <div className='card-item-bgimg' style={{'borderRadius':'100%','backgroundImage':`url('http://localhost:8000/images/p1.jpg')`}}></div>
+                            <div className='card-item-bgimg' style={{'borderRadius':'100%','backgroundImage':`url('http://127.0.0.1/images/p1.jpg')`}}></div>
                         </dt>
                         <dd className='card-item-con'>
                             <p className='font-L' style={{'padding':'.05rem 0'}}>{this.state.userName}</p>
