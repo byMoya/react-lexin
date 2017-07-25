@@ -16,7 +16,7 @@ Mock.mock(/\/index\/statement/,{
 		walk:82,
 		walkCurrent:123,
 		calorie:238,
-		walkTarget:8000,
+		walkTarget:8199,
 		walkCount:2633
 	}
 });
@@ -67,7 +67,7 @@ Mock.mock(/\/user\/info/,{
 		userName:'测试账号',
         userId:'70939455',
         level:3,
-		walkTarget:8000,
+		walkTarget:8199,
 		weightTarget:72.5,
 		devices:[
 			{name:'乐心手环MAMBO 2',connect:'1'}

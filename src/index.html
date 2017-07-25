@@ -18,10 +18,8 @@
           var w = 100*(width / 375)>120?120:100*(width / 375);
           width && (docEle.style.fontSize = w + "px"); //设置html的fontSize，随着event的改变而改变。
         };
-
       win.addEventListener(event, fn, false);
       doc.addEventListener("DOMContentLoaded", fn, false);
-
     }(document, window));
   </script>
   <title>乐心Moya</title>

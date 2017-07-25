@@ -89,7 +89,7 @@ class Main extends Component {
                         devices.map(function(item,idx){
                             return  <dl key={'devices_'+idx} className='card-item'>
                                         <dt className='card-item-img' style={{'width':'.4rem','height':'.4rem'}}>
-                                            <div className='card-item-bgimg' style={{'borderRadius':'100%','backgroundImage':`url('http://localhost:8000/images/p2.jpg')`}}></div>
+                                            <div className='card-item-bgimg' style={{'borderRadius':'100%','backgroundImage':`url('http://127.0.0.1/images/p2.jpg')`}}></div>
                                         </dt>
                                         <dd className='card-item-con'>
                                             <p className='p-b-s'>{item.name}</p>

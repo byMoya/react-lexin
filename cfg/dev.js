@@ -12,7 +12,9 @@ let config = Object.assign({}, baseConfig, {
   entry: [
     'webpack-dev-server/client?http://127.0.0.1:' + defaultSettings.port,
     'webpack/hot/only-dev-server',
-    './src/index'
+    /* 使用模拟mock数据 */
+    './src/lib/mock/mock',
+    './src/index',
   ],
   cache: true,
   devtool: 'eval-source-map',
@@ -23,7 +25,7 @@ let config = Object.assign({}, baseConfig, {
       searchResolveModulesDirectories: false
     })
   ],
-  module: defaultSettings.getDefaultModules()
+  module: defaultSettings.getDefaultModulesByDev()
 });
 
 // Add needed loaders to the defaults here

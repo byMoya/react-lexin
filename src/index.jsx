@@ -17,7 +17,7 @@ import store from './redux/store/store'
 import './styles/app.less'
 
 /* mock模拟数据 */
-import mock from "./lib/mock/mock.js";
+// import mock from "./lib/mock/mock.js";
 
 
 /* 监听store变化 */
