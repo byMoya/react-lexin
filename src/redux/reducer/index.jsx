@@ -5,7 +5,6 @@ const defaultlState = Immutable.fromJS({data: {}, isFetching: false});
 
 //首次渲染时获取数据
 export const fetchData = (state = defaultlState , action = {}) => {
-    debugger;
     switch(action.type){
         case REQUEST_POSTS:
             return state.set('isFetching',true);

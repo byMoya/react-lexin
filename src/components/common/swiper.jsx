@@ -4,6 +4,10 @@ import {bindTouchGetXY} from '../../common/io';
 
 class Swiper extends Component{
 
+    static childContextTypes = {
+        idx:React.PropTypes.any
+    }
+
     constructor(props,cxt){
         super(props,cxt);
         
@@ -17,9 +21,9 @@ class Swiper extends Component{
 
         this.initSwiperTimer = ()=>{
             let interval = this.props.interval?this.props.interval:1000;
+
             this.state.timer = setInterval(function(){
                 let SwiperItemIdx = this.state.idx;
-                // debugger;
                 if(SwiperItemIdx < this.props.list.length-1){
                     SwiperItemIdx += 1;
                 }else{
@@ -36,7 +40,16 @@ class Swiper extends Component{
         };
     }
 
+    getChildContext(){
+        return {
+            idx:this.state.idx
+        }
+    }
+
     componentDidMount(){
+
+        /*  初始化定时器 */
+        this.initSwiperTimer();
 
         bindTouchGetXY({
             el:this.refs.swiper,
@@ -89,17 +102,20 @@ class Swiper extends Component{
 }
 
 class SwiperLoops extends Component{
+    static contextTypes = {
+        idx:React.PropTypes.any
+    }
     constructor(props,cxt){
         super(props,cxt);
     }
     render(){
         let {loops,getLoopIdx} = this.props;
-
+        let currentIdx = this.context.idx;
         return (
             <div className='swiper-loop swiper-loop-bottom'>
                 {
                     loops.map(function(item,idx){
-                        return <span key={idx} className={'swiper-loop-item' + ' ' + (getLoopIdx()==idx?'swiper-loop-item-selected':'')}></span>
+                        return <span key={idx} className={'swiper-loop-item' + ' ' + (currentIdx==idx?'swiper-loop-item-selected':'')}></span>
                     })
                 }
             </div>
@@ -108,7 +124,9 @@ class SwiperLoops extends Component{
 }
 
 class SwiperItem extends Component{
-    static contextTypes = {};
+    static contextTypes = {
+        idx:React.PropTypes.any
+    }
 
     constructor(props,context){
         super(props,context);

@@ -62,7 +62,6 @@ export const fetchPosts = (path, postData) => {
     return dispatch => {
         dispatch(requestPosts(postData));
         return axios.post(url,postData).then(res => {
-            // debugger;
             if(res.status==200 && res.data.code==200){
                 dispatch(receivePosts(path, res.data.data));
             }else{
