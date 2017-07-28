@@ -65,7 +65,7 @@ class Main extends Component {
     }
    
     render() {
-
+        debugger;
         console.log("redner",(new Date).getTime());
 
         let btngroups = [

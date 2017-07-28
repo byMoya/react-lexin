@@ -9,7 +9,7 @@ export const GET_DATA_START = 'GET_DATA_START'
 export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS'
 export const TEST_DISPATCH = 'TEST_DISPATCH'
 
-const apiPath = "http://127.0.0.1:8000";
+const apiPath = "127.0.0.1:8000";
 
 
 //开始获取数据
@@ -22,7 +22,7 @@ const requestPosts = path => {
 
 //获取数据成功
 const receivePosts = (path, json) => {
-  console.log("receivePosts",RECEIVE_POSTS,path,json);
+  // console.log("receivePosts",RECEIVE_POSTS,path,json);
   return {
         type: RECEIVE_POSTS,
         path ,
