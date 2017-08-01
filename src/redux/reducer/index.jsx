@@ -5,6 +5,7 @@ const defaultlState = Immutable.fromJS({data: {}, isFetching: false});
 
 //首次渲染时获取数据
 export const fetchData = (state = defaultlState , action = {}) => {
+    //debugger;
     switch(action.type){
         case REQUEST_POSTS:
             return state.set('isFetching',true);
@@ -31,9 +32,23 @@ export const requestData = (state = {}, action = {}) => {
 
 /* 测试 */
 export const testData = (state = {}, action = {}) => {
+    //debugger;
     switch(action.type){
         case TEST_DISPATCH:
             return Object.assign({},state,action);
+        default:
+            return state;
+    }
+}
+
+export const mutationsCache = (state={},action={})=>{
+    //debugger;
+    switch(action.type) {
+        case 'mutationsCache':
+            // alert('mutationsCache reducer');
+            state.data = action.data;
+            return state;
+            break;
         default:
             return state;
     }

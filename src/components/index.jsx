@@ -26,19 +26,24 @@ class Main extends Component {
 
     }
     componentDidMount(){
-
+        this.props.testMutationsCache();
+        this.props.dispatch({
+            type:'mutationsCache',
+            path:'/test/mutations',
+            data:[
+                {key:'name',value:'wjh'}
+            ]
+        });
     }
 
     componentWillReceiveProps(nextProps){
         /* 把接口返回数据set进state */
         // alert('componentWillReceiveProps');
         console.log("componentWillReceiveProps 把接口返回数据set进state");
-
-        let result = nextProps.state.data;
-        
-        Object.assign(this.state,result);
-        // debugger;
-        // this.setState(this.state);
+        if(!nextProps.state.isFetching){
+            let result = nextProps.state.data;
+            Object.assign(this.state,result);
+        }
     }
 
     // shouldComponentUpdate(nextProps, nextState) {

@@ -58,6 +58,7 @@ const receivePosts = (path, json) => {
  * @return {[type]} [description]
  */
 export const fetchPosts = (path, postData) => {
+    // debugger;
     var url = apiPath + path;
     return dispatch => {
         dispatch(requestPosts(postData));
@@ -108,4 +109,14 @@ export const getData = (path,postData,success,name) => {
     }
 }
 
-
+export const testMutationsCache = (params)=>{
+    return dispatch=>{
+        dispatch({
+            type:'mutationsCache',
+            path:'/test/mutations',
+            data:[
+                {key:'mid',value:'rng'}
+            ]
+        });
+    }
+}

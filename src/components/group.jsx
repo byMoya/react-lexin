@@ -14,11 +14,18 @@ class Main extends Component {
             groupData:[]
         };
         this.getBanner = () => {
-            this.props.getData('/group/banner',{},res => {
+            if('GetGroupBanner' in this.props.requestData){
                 this.setState({
-                    swiperListData:res
+                    swiperListData:this.props.requestData['GetGroupBanner']
                 });
-            },'GetGroupBanner');
+            }else{
+                this.props.getData('/group/banner',{},res => {                
+                    this.setState({
+                        swiperListData:res
+                    });
+                },'GetGroupBanner');
+            }
+            
         }
         this.getGroup = () => {
             var _groupData = this.state.groupData;
@@ -27,6 +34,9 @@ class Main extends Component {
                     groupData:_groupData.concat(res)
                 });
             },"GetGroupData");
+        }
+        this.logRequestData = (dataName) => {
+            alert(JSON.stringify(this.props.requestData[dataName]));
         }
         this.toGroupDetail = (id)=>{
             this.props.history.push({
@@ -65,12 +75,12 @@ class Main extends Component {
     }
    
     render() {
-        debugger;
+
         console.log("redner",(new Date).getTime());
 
         let btngroups = [
-            {name:'fa fa-search',handleClick:function(){alert('fuck wjh')}},
-            {name:'fa fa-list-ul',handleClick:function(){alert('fuck wjh')}}
+            {name:'fa fa-search',handleClick:this.logRequestData.bind(this,'GetGroupBanner')},
+            {name:'fa fa-list-ul',handleClick:this.logRequestData.bind(this,'GetGroupData')}
         ];
 
         let {swiperListData,groupData} = this.state;

@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux'
 import { is, fromJS} from 'immutable';
 import * as action from '../../redux/action/index';
 
@@ -11,7 +12,7 @@ const Main = mySeting => {
         id: '', //应用唯一id表示
         url: '', //请求地址
         data: {}, //发送给服务器的数据
-        component: '<div></div>', //数据回调给的组件
+        component: '<div></div>' //数据回调给的组件
     };
 
     for (let key in mySeting) {
@@ -48,18 +49,21 @@ const Main = mySeting => {
         }
     }
 
-    console.log("template-lexin",Index);
     //mapStateToProps and mapDispatchToProps
     return connect(state => { //将顶层组件与模版绑定后return回去，配置路由的时候用的就是和redux绑定的组件，所以其实每个路由匹配的都是同一个组件，只不过这个组件的内容不同
-        
-        let {requestData, testData} = state;
+        let {requestData,testData,mutationsCache} = state;
         return { 
             state: state['fetchData'],
             testData,
-            requestData
+            requestData,
+            mutationsCache
         } 
-    },action)(Index); //连接redux
+    },mapDispatchToProps)(Index); //连接redux
 }
 
+function mapDispatchToProps(dispatch) {
+    let actionCreators = bindActionCreators(action,dispatch);
+    return { ...actionCreators, dispatch };
+}
 
 export default Main;
