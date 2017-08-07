@@ -7,6 +7,9 @@ import {Header,Footer,template,Swiper} from './common/mixin';
 
 
 class Main extends Component {
+    static contextTypes = {
+        router: React.PropTypes.any
+    }
     constructor(props,context){
         super(props,context);
         this.state = {
@@ -39,7 +42,7 @@ class Main extends Component {
             alert(JSON.stringify(this.props.requestData[dataName]));
         }
         this.toGroupDetail = (id)=>{
-            this.props.history.push({
+            this.context.router.push({
                 pathname:'group/detail',
                 state:{
                     id:id,
